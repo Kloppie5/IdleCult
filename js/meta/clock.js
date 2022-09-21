@@ -1,11 +1,14 @@
 
 class Clock {
+
   constructor ( path, startTime, maxValue, repeat, callback ) {
     this.path = path;
     this.startTime = startTime;
     this.maxValue = maxValue;
     this.repeat = repeat;
     this.callback = callback;
+
+    this.radius = 0.9;
   }
 
   tick ( currentTime ) {
@@ -21,20 +24,16 @@ class Clock {
     // angle, clockwise starting at the top
     var angle = this.currentValue * 2 * Math.PI - Math.PI/2;
 
-    var x = 50 * Math.cos(angle);
-    var y = 50 * Math.sin(angle);
-
-    console.log(`currentValue: ${this.currentValue}, angle: ${angle/Math.PI*180}, x: ${x}, y: ${y}`);
+    var x = this.radius * Math.cos(angle);
+    var y = this.radius * Math.sin(angle);
 
     this.path.setAttribute(
       'd',
       [
-      'M 0 -50',
-      'A 50 50 0',
-      this.currentValue > 0.5 ? 1 : 0,
-      '1',
-      x,
-      y
+      'M 0', -this.radius,
+      'A', this.radius, this.radius,
+        '0', this.currentValue > 0.5 ? 1 : 0, '1',
+        x, y
     ].join(' ')
     )
   }

@@ -2,22 +2,35 @@
   <head>
     <script src="js/meta/clock.js"></script>
     <script src="js/meta/engine.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    </style>
   </head>
   <body>
-    Hello Again~
-    <svg viewBox="-60 -60 120 120">
-      <path id="clock-10000" fill="none" stroke="red" stroke-width="8" />
-      <path id="clock-7000" fill="none" stroke="blue" stroke-width="7" />
-      <path id="clock-3000" fill="none" stroke="green" stroke-width="6" />
-      <path id="clock-1000" fill="none" stroke="yellow" stroke-width="5" />
-      <path id="clock-200" fill="none" stroke="orange" stroke-width="4" />
-    </svg>
-    <script>
-      Engine.registerClock(document.getElementById("clock-10000"), 10000);
-      Engine.registerClock(document.getElementById("clock-7000"), 7000);
-      Engine.registerClock(document.getElementById("clock-3000"), 3000);
-      Engine.registerClock(document.getElementById("clock-1000"), 1000);
-      Engine.registerClock(document.getElementById("clock-200"), 200);
-    </script>
+    <div class="action">
+      <span class="action__title">
+        Pondering
+      </span>
+      <div class="action__progress">
+        <svg viewBox="-1 -1 2 2">
+          <path id="clock-10000" fill="none" stroke="red" stroke-width=".2" stroke-linecap="round" />
+        </svg>
+        <script>
+          Engine.registerClock(document.getElementById("clock-10000"), 10000);
+        </script>
+      </div>
+    </div>
+    <div class="action" style="top: 150px;">
+      <span class="action__title">
+        Something
+      </span>
+      <div class="action__progress">
+        <svg viewBox="-1 -1 2 2">
+          <path id="clock-3000" fill="none" stroke="blue" stroke-width=".2" stroke-linecap="round" />
+        </svg>
+        <script>
+          Engine.registerClock(document.getElementById("clock-3000"), 3000);
+        </script>
+      </div>
+    </div>
   </body>
 </html>
